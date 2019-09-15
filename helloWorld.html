@@ -17,12 +17,19 @@
         dojo.ready(
             function () {
                     // dojo.query return array on dome node
+                    //dojo.query("[name^='test']") this mean get all note have name contain on test
+                    //dojo.query("div") ===> this meain get all div in page
+                    //dojo.query("h1")  ===> get all h1 in page
+                    //dojo.query("div > a") ====> this get all "<a>" tage inside the "<div>" tag
                 var i = dojo.query("#test");
                 console.log(i[0].innerHTML);
                 i[0].innerHTML = "test Hello!";
             });
     </script>
     <h1 id="test">Hello World</h1>
-    <h2 class="testClass">Hello again!</h1>
+    <h2 name="testName">Hello again!</h1>
+    <div>
+        <a href="https://google.com">go to google</a>
+    </div>
 </body>
 </html>
