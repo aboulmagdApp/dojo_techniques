@@ -33,7 +33,16 @@
                 var div = dom.byId("myDiv");
                 var domstyleDiv = dom.byId("domstyle");
 
-                on(div, mouse.enter, function (event) {
+                // to execute  time only use on.once or remove handeler
+                
+            /*  var handeler =   on.once(div, mouse.enter, function (event) {
+                    domstyle.set(div, "width", "2500px");
+                    domstyle.set(div, "cursor", "pointer");
+                    div.innerHTML = "Move mouse pointer away to change color to wihet" + domstyle.get(div, "width");
+                    div.style.background = "yellow";
+                    handeler.Remove();
+                }); */
+                on.once(div, mouse.enter, function (event) {
                     domstyle.set(div, "width", "2500px");
                     domstyle.set(div, "cursor", "pointer");
                     div.innerHTML = "Move mouse pointer away to change color to wihet" + domstyle.get(div, "width");
