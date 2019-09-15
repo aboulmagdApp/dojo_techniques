@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Hello Dojo </title>
+    <style>
+        .testClass {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myDiv">mouse over to change my bg to yellow</div>
+    <button id="showDiv">show Div</button>
+    <button id="hideDiv">hide Div</button>
+    <script src="../dojo-release-1.15.0/dojo/dojo.js" data-dojo-config="async:true"></script>
+    <script>
+        require(["dojo/dom", "dojo/on","dojo/mouse", "dojo/domReady!"], function (dom, on, mouse) {
+            var showButton = dom.byId("showDiv");
+            var hideButton = dom.byId("hideDiv");
+            var div = dom.byId("myDiv");
+
+            on(div, mouse.enter, function (event) {
+                div.innerHTML = "Move mouse pointer away to change color to wihet";
+                div.style.background = "yellow";
+            });
+            on(div, mouse.leave, function (event) {
+                div.innerHTML = "mouse over to change my bg to yellow";
+                div.style.background = "white";
+            });
+            on(hideButton, "click", function (e) {
+                div.style.display = "none";
+            });
+            on(showButton, "click", function (e) {
+                if (div.style.display == "none") {
+                    div.style.display = "block";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
