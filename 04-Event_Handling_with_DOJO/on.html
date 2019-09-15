@@ -4,15 +4,15 @@
 <head>
     <meta charset="utf-8">
     <title>Demo on </title>
-	<style>
-            .test{
-            width:300px;
-            height:150px;
-            border:1px solid red;
-            background-color:pink;
-            text-align:right;
-            }
-            </style>
+    <style>
+        .test {
+            width: 300px;
+            height: 150px;
+            border: 1px solid red;
+            background-color: pink;
+            text-align: right;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,38 +22,38 @@
     <div id="domstyle" class="test">Dom style</div>
     <script src="../dojo-release-1.15.0/dojo/dojo.js" data-dojo-config="async:true"></script>
     <script>
-        require(["dojo/dom", 
-                "dojo/on",
-                "dojo/mouse", // mouse event like leave, enter ...etc
-                "dojo/dom-style", //this lib to add style for any dom and can get infomrmation about applyed style on dom
-                "dojo/domReady!"], 
-                function (dom, on, mouse, domstyle) {
-            var showButton = dom.byId("showDiv");
-            var hideButton = dom.byId("hideDiv");
-            var div = dom.byId("myDiv");
-            var domstyleDiv = dom.byId("domstyle");
+        require(["dojo/dom",
+            "dojo/on",
+            "dojo/mouse", // mouse event like leave, enter ...etc
+            "dojo/dom-style", //this lib to add style for any dom and can get infomrmation about applyed style on dom
+            "dojo/domReady!"],
+            function (dom, on, mouse, domstyle) {
+                var showButton = dom.byId("showDiv");
+                var hideButton = dom.byId("hideDiv");
+                var div = dom.byId("myDiv");
+                var domstyleDiv = dom.byId("domstyle");
 
-            on(div, mouse.enter, function (event) {
-                domstyle.set(div,"width","2500px");
-                domstyle.set(div,"cursor","pointer");
-                div.innerHTML = "Move mouse pointer away to change color to wihet" + domstyle.get(div,"width");
-                div.style.background = "yellow";
+                on(div, mouse.enter, function (event) {
+                    domstyle.set(div, "width", "2500px");
+                    domstyle.set(div, "cursor", "pointer");
+                    div.innerHTML = "Move mouse pointer away to change color to wihet" + domstyle.get(div, "width");
+                    div.style.background = "yellow";
+                });
+                on(div, mouse.leave, function (event) {
+                    div.innerHTML = "mouse over to change my bg to yellow";
+                    div.style.background = "white";
+                });
+                on(hideButton, "click", function (e) {
+                    div.style.display = "none";
+                });
+                on(showButton, "click", function (e) {
+                    if (div.style.display == "none") {
+                        div.style.display = "block";
+                    }
+                    var styles = domstyle.getComputedStyle(domstyleDiv);
+                    div.innerHTML = "width is :" + styles.width + "height is:" + styles.height + "background color is: " + styles.backgroundColor
+                });
             });
-            on(div, mouse.leave, function (event) {
-                div.innerHTML = "mouse over to change my bg to yellow";
-                div.style.background = "white";
-            });
-            on(hideButton, "click", function (e) {
-                div.style.display = "none";
-            });
-            on(showButton, "click", function (e) {
-                if (div.style.display == "none") {
-                    div.style.display = "block";
-                }
-                var styles = domstyle.getComputedStyle(domstyleDiv);
-                div.innerHTML = "width is :" + styles.width + "height is:" + styles.height + "background color is: " + styles.backgroundColor
-            });
-        });
     </script>
 </body>
 
