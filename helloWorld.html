@@ -4,6 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title> Hello Dojo </title>
+    <style>
+        .testClass{
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <script src="dojo-release-1.15.0/dojo/dojo.js"></script>
@@ -11,11 +16,13 @@
         //dojo legacy loader
         dojo.ready(
             function () {
-                var i = dojo.byId("test");
-                console.log(i.innerHTML);
-                i.innerHTML = "test Hello!";
+                    // dojo.query return array on dome node
+                var i = dojo.query("#test");
+                console.log(i[0].innerHTML);
+                i[0].innerHTML = "test Hello!";
             });
     </script>
     <h1 id="test">Hello World</h1>
+    <h2 class="testClass">Hello again!</h1>
 </body>
 </html>
