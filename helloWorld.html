@@ -5,31 +5,46 @@
     <meta charset="utf-8">
     <title> Hello Dojo </title>
     <style>
-        .testClass{
+        .testClass {
             color: red;
         }
     </style>
 </head>
+
 <body>
-    <script src="dojo-release-1.15.0/dojo/dojo.js"></script>
+    <!-- <script src="dojo-release-1.15.0/dojo/dojo.js"></script> -->
+   <!--  <script>
+        dojoConfig = {
+            async: true
+        };
+    </script> -->
+    <script src="dojo-release-1.15.0/dojo/dojo.js" data-dojo-config="async:true"></script>
     <script>
         //dojo legacy loader
-        dojo.ready(
-            function () {
-                    // dojo.query return array on dome node
-                    //dojo.query("[name^='test']") this mean get all note have name contain on test
-                    //dojo.query("div") ===> this meain get all div in page
-                    //dojo.query("h1")  ===> get all h1 in page
-                    //dojo.query("div > a") ====> this get all "<a>" tage inside the "<div>" tag
-                var i = dojo.query("#test");
-                console.log(i[0].innerHTML);
-                i[0].innerHTML = "test Hello!";
-            });
+        /*    dojo.ready(
+               function () {
+                       // dojo.query return array on dome node
+                       //dojo.query("[name^='test']") this mean get all note have name contain on test
+                       //dojo.query("div") ===> this meain get all div in page
+                       //dojo.query("h1")  ===> get all h1 in page
+                       //dojo.query("div > a") ====> this get all "<a>" tage inside the "<div>" tag
+                   var i = dojo.query("#test");
+                   console.log(i[0].innerHTML);
+                   i[0].innerHTML = "test Hello!";
+               }); */
+        // dojo AMD
+        require(["dojo/dom", "dojo/query", "dojo/domReady!"], function (dom, query) {
+            var i = dom.byId("test");
+            var j = query("#test");
+            j[0].innerHTML = "AMD test";
+            console.log(i.innerHTML);
+        });
     </script>
     <h1 id="test">Hello World</h1>
     <h2 name="testName">Hello again!</h1>
-    <div>
-        <a href="https://google.com">go to google</a>
-    </div>
+        <div>
+            <a href="https://google.com">go to google</a>
+        </div>
 </body>
+
 </html>
