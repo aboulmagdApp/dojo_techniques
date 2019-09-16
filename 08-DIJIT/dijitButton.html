@@ -5,17 +5,26 @@
     <meta charset="utf-8">
     <title>dijit button </title>
 </head>
-<!-- <link rel="stylesheet" href="../dojo-release-1.15.0/dijit/themes/claro/claro.css" media="screen"> -->
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css" media="screen">
+<link rel="stylesheet" href="../dojo-release-1.15.0/dijit/themes/claro/claro.css" media="screen">
+<!-- <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css" media="screen">
+ -->
 
 <body class="claro">
-    <button id="btn" data-dojo-type="dijit/form/Button"
-        data-dojo-props="onClick:function(){console.log('button was clicked');}">
+    <button id="btn">
         Click Me!
     </button>
-    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.12.1/dojo/dojo.js" data-dojo-config="async:false,parseOnLoad:true"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.12.1/dojo/dojo.js" data-dojo-config="async:false"></script>
     <script>
-        require(["dojo/parser", "dijit/form/Button", "dojo/domReady!"]);
+        require(["dijit/form/Button", "dojo/domReady!"], function (Button) {
+            var Button1 = new Button({
+                label: "Click me!",
+                onClick: function () {
+                    // Do something:
+                    console.log('button cliked');
+                }
+            }, "btn");
+            Button1.startup()
+        });
     </script>
 </body>
 
