@@ -12,7 +12,7 @@
     }
     </style>
 </head>
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css"
+<link rel="stylesheet" href="../dojo-release-1.15.0/dijit/themes/claro/claro.css"
     media="screen">
 
 <body class="claro">
@@ -25,12 +25,16 @@
         <label for="textArea">Details</label>
         <textarea id="textArea" data-dojo-type="dijit/form/SimpleTextarea" data-dojo-props="cols:50,row:7,onFocus:function(){console.log('text area fouces');}"></textarea>
     </div>
+    <div>
+            <label for="DtextBx">Date textbox</label>
+            <input id="DtextBx" data-dojo-type="dijit/form/DateTextBox" data-dojo-props="">
+        </div>
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.12.1/dojo/dojo.js"
         data-dojo-config="async:false,parseOnLoad:true"></script>
     <script>
-        require(["dojo/parser", "dijit/form/TextBox","dijit/form/SimpleTextarea", "dojo/domReady!"]);
+        require(["dojo/parser", "dijit/form/TextBox","dijit/form/SimpleTextarea","dijit/form/DateTextBox", "dojo/domReady!"]);
     </script>
 </body>
 
