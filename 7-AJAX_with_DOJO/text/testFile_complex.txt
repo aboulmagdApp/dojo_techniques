@@ -1,0 +1,23 @@
+{
+	"title": "Employee Title",
+	"Employees": [
+		{
+			"name": "Eric",
+			"email": "eric@email.com",
+			"phone": "123456789",
+			"title": "developer"
+		},
+		{
+			"name": "Maged",
+			"email": "Maged@email.com",
+			"phone": "55666444",
+			"title": "Eng"
+		},
+		{
+			"name": "Eman",
+			"email": "eman@email.com",
+			"phone": "8549657",
+			"title": "accountant"
+		}
+	]
+}

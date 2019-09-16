@@ -18,10 +18,11 @@ require(["dojo/dom", "dojo/on", "dojo/request", "dojo/domReady!"],function(dom, 
 
         on(dom.byId("textButton"), "click", function(evt){
 		
-            request.get("text/testFile.txt",{handleas:"json"}).then(
+            request.get("text/testFile_complex.txt",{handleAs:"json"}).then(
                 function(response){
+                    console.log(response);
                     // Display the text file content
-                    testDiv.innerHTML = response;
+                    testDiv.innerHTML = JSON.stringify(response);
                 },
                 function(error){
                     // Display the error returned
